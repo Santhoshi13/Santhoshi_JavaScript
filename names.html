@@ -5,7 +5,8 @@
 
 <form autofill="off" >
   <div class="autofill" style="width:300px;">
-    <input id="myInput" type="text" name="myname" placeholder="name">
+    <input id="myInput" type="text" name="myname" placeholder="name"><br></br>
+	<label id ="myLabel" > My Label Is</label>
   </div>
 </form>
 
@@ -55,6 +56,7 @@ function autofill(inp, arr) {
 var names = ["Bob","Alex","Sam","Xyz","Steve"];
 
 autofill(document.getElementById("myInput"), names);
+document.getElementById("myLabel").value = document.getElementById("myInput");
 
 </script>
 
