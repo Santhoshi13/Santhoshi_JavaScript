@@ -1,0 +1,62 @@
+<html>
+<body>
+
+<p>Start typing:</p>
+
+<form autofill="off" >
+  <div class="autofill" style="width:300px;">
+    <input id="myInput" type="text" name="myname" placeholder="name">
+  </div>
+</form>
+
+<script>
+function autofill(inp, arr) {
+  var currentFocus;
+  inp.addEventListener("input", function(e) {
+      var a, b, i, val = this.value;
+      closeAllLists();
+      if (!val) { return false;}
+      currentFocus = -1;
+      a = document.createElement("DIV");
+      a.setAttribute("id", this.id + "autofill-list");
+      a.setAttribute("class", "autofill-items");
+      this.parentNode.appendChild(a);
+      for (i = 0; i < arr.length; i++) {
+        if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+          b = document.createElement("DIV");
+          b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+          b.innerHTML += arr[i].substr(val.length);
+          b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+          b.addEventListener("click", function(e) {
+              inp.value = this.getElementsByTagName("input")[0].value;
+
+              closeAllLists();
+          });
+          a.appendChild(b);
+        }
+      }
+  });
+
+
+
+  function closeAllLists(elmnt) {
+    var x = document.getElementsByClassName("autofill-items");
+    for (var i = 0; i < x.length; i++) {
+      if (elmnt != x[i] && elmnt != inp) {
+        x[i].parentNode.removeChild(x[i]);
+      }
+    }
+  }
+  document.addEventListener("click", function (e) {
+      closeAllLists(e.target);
+  });
+}
+
+var names = ["Bob","Alex","Sam","Xyz","Steve"];
+
+autofill(document.getElementById("myInput"), names);
+
+</script>
+
+</body>
+</html>
