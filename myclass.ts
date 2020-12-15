@@ -14,9 +14,9 @@ class Service{
     }
     getExp(){
         if (this.exp > 7 )
-          return ("exp > 7" + this.exp + this.name + this.projectCode);
+          return ("Person has exp > 7 " + this.exp + this.name + this.projectCode);
           else
-          return "exp < 7";
+          return "Person has exp < 7 ";
     }
 }
 
