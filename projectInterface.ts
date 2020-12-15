@@ -2,7 +2,7 @@ interface iProject {
     project:string
 }
 
-class Service implements iProject{
+class Associate implements iProject{
     exp:number
     name:string // default is public
     project: string
@@ -17,7 +17,7 @@ class Service implements iProject{
     
 }
 
-let objArr = [new Service(10,' ABC ','Treasury'),new Service(8,' XYZ ','Treasury'),new Service(2,' ZZZ ','Treasury'),new Service(13,' SSS ','Wealth'),new Service(9,' Lakshmi ','Wealth')];
+let objArr = [new Associate(10,' ABC ','Treasury'),new Associate(8,' XYZ ','Treasury'),new Associate(2,' ZZZ ','Treasury'),new Associate(13,' SSS ','Wealth'),new Associate(9,' Lakshmi ','Wealth')];
 
 function isexp(emp) { 
     return emp.exp > 7;
